@@ -3,67 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Our Task Map</title>
-<meta name="description" content="Our group's five AI-agent tasks placed on the map of human-AI collaboration.">
+<title>Our Task Map · PS5 Stock Watch</title>
+<meta name="description" content="Our group's AI-agent tasks on the map of human-AI collaboration, plus my Problem Set 5 agent: a daily US stock watch with a Buy/Sell/Hold signal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff;
-    --ink: #14213d;
-    --muted: #5b6577;
-    --line: #d7dde6;
-    --accent: #c8364a;
-    --eyebrow: #2a6f97;
-    --panel: #fafbfd;
-    --q-pink: #fbf3f8;
-    --q-pink-line: #e3c6db;
-    --q-blue: #f1f6fa;
-    --q-blue-line: #bfd3e3;
-    --strip: #f2f4f8;
-    --q-title: #3d2b6b;
+    --bg: #ffffff; --ink: #14213d; --muted: #5b6577; --line: #d7dde6;
+    --accent: #c8364a; --eyebrow: #2a6f97; --panel: #fafbfd;
+    --q-pink: #fbf3f8; --q-pink-line: #e3c6db; --q-blue: #f1f6fa; --q-blue-line: #bfd3e3;
+    --strip: #f2f4f8; --q-title: #3d2b6b; --fill: #fff4c2; --fill-ink: #6b5200; --mine: #e07a00;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #0f1420; --ink: #e8ecf3; --muted: #9aa5b8; --line: #2a3346;
       --accent: #ef6b7d; --eyebrow: #6fb3dc; --panel: #141a28;
       --q-pink: #23192a; --q-pink-line: #4b3550; --q-blue: #15212e; --q-blue-line: #2d4a63;
-      --strip: #1a2131; --q-title: #cdbcf2;
+      --strip: #1a2131; --q-title: #cdbcf2; --fill: #3a3112; --fill-ink: #ffe08a; --mine: #ffa64d;
     }
   }
   :root[data-theme="dark"] {
     --bg: #0f1420; --ink: #e8ecf3; --muted: #9aa5b8; --line: #2a3346;
     --accent: #ef6b7d; --eyebrow: #6fb3dc; --panel: #141a28;
     --q-pink: #23192a; --q-pink-line: #4b3550; --q-blue: #15212e; --q-blue-line: #2d4a63;
-    --strip: #1a2131; --q-title: #cdbcf2;
+    --strip: #1a2131; --q-title: #cdbcf2; --fill: #3a3112; --fill-ink: #ffe08a; --mine: #ffa64d;
   }
-
   * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font-family: "Jost", system-ui, sans-serif; line-height: 1.45;
-  }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Jost", system-ui, sans-serif; line-height: 1.5; }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 16px 24px; }
-
   .eyebrow { color: var(--eyebrow); font-weight: 700; letter-spacing: .18em; font-size: 15px; text-transform: uppercase; margin: 0 0 18px; }
   h1 { font-size: clamp(22px, 3vw, 28px); margin: 0 0 8px; font-weight: 600; }
-  .lede { margin: 0 0 22px; font-size: 17px; color: var(--ink); }
-
-  .panel {
-    border: 1px solid var(--line); border-left: 5px solid var(--accent);
-    border-radius: 4px; background: var(--panel); padding: 18px 20px 16px;
-  }
+  h2 { font-size: 22px; margin: 44px 0 12px; font-weight: 600; padding-top: 8px; border-top: 1px solid var(--line); }
+  h3 { font-size: 17px; margin: 22px 0 8px; font-weight: 600; }
+  p, li { font-size: 17px; }
+  .lede { margin: 0 0 22px; font-size: 17px; }
+  .panel { border: 1px solid var(--line); border-left: 5px solid var(--accent); border-radius: 4px; background: var(--panel); padding: 18px 20px 16px; }
   .panel-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
-  .badge {
-    background: var(--accent); color: #fff; font-weight: 700; letter-spacing: .08em;
-    text-transform: uppercase; font-size: 14px; padding: 7px 16px; border-radius: 999px;
-  }
+  .badge { background: var(--accent); color: #fff; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 14px; padding: 7px 16px; border-radius: 999px; }
   .badge::before { content: "●"; color: #ffc94d; margin-right: 8px; font-size: 10px; vertical-align: 2px; }
   .counter { font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 17px; }
-
-  .grid {
-    display: grid; grid-template-columns: 170px 1fr 1fr; gap: 10px 14px; align-items: stretch;
-  }
+  .grid { display: grid; grid-template-columns: 170px 1fr 1fr; gap: 10px 14px; align-items: stretch; }
   .col-head { text-align: center; font-weight: 600; font-size: 17px; padding-bottom: 2px; }
   .row-label { display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 500; font-size: 15px; padding: 0 6px; }
   .quad { border: 1.5px solid; border-radius: 8px; padding: 12px 14px; min-height: 150px; }
@@ -73,32 +52,39 @@
   .dots { display: grid; grid-template-columns: 1fr; gap: 10px; }
   .dot { display: flex; align-items: center; gap: 9px; font-size: 14px; animation: pop .25s ease-out; }
   .dot i { width: 14px; height: 14px; border-radius: 50%; flex: none; }
+  .dot.mine { font-weight: 700; outline: 2px dashed var(--mine); outline-offset: 4px; border-radius: 4px; }
+  .dot.mine i { width: 18px; height: 18px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--mine) 35%, transparent); }
   @keyframes pop { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-
-  .explain {
-    margin: 16px 0 14px; background: var(--strip); border-left: 3px solid var(--eyebrow);
-    padding: 11px 16px; font-size: 16px; min-height: 46px;
-  }
+  .explain { margin: 16px 0 14px; background: var(--strip); border-left: 3px solid var(--eyebrow); padding: 11px 16px; font-size: 16px; min-height: 46px; }
   .explain b { color: var(--accent); font-weight: 600; }
   .explain .meta { display: block; margin-top: 6px; font-size: 14px; color: var(--muted); }
-
   .cards { display: flex; flex-wrap: wrap; gap: 8px; }
-  .card, .btn {
-    font: inherit; font-size: 16px; font-weight: 500; cursor: pointer;
-    border: 2px solid var(--ink); background: transparent; color: var(--ink);
-    padding: 5px 11px; border-radius: 3px; text-align: left;
-    transition: background .15s, color .15s;
-  }
+  .card, .btn { font: inherit; font-size: 16px; font-weight: 500; cursor: pointer; border: 2px solid var(--ink); background: transparent; color: var(--ink); padding: 5px 11px; border-radius: 3px; text-align: left; transition: background .15s, color .15s; }
   .card:hover, .btn:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
   .card.placed { color: #fff; }
   .card:focus-visible, .btn:focus-visible { outline: 3px solid var(--eyebrow); outline-offset: 2px; }
   .btn.solid { background: var(--ink); color: var(--bg); }
-
   .hint { margin-top: 12px; background: var(--strip); border-left: 3px solid var(--eyebrow); padding: 8px 14px; font-style: italic; color: var(--eyebrow); font-size: 15px; }
   .hint::before { content: "▸ "; font-style: normal; }
 
-  footer { margin-top: 26px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-
+  pre.agentcard { font-family: "JetBrains Mono", monospace; font-size: 14px; background: var(--panel); border: 1px solid var(--line); border-left: 5px solid var(--mine); padding: 14px 16px; white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; }
+  .flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0 4px; }
+  .flow span { border: 1.5px solid var(--line); background: var(--panel); border-radius: 6px; padding: 6px 10px; font-size: 15px; }
+  .flow b { color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 8px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--strip); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+  .fill { background: var(--fill); color: var(--fill-ink); padding: 0 4px; border-radius: 3px; font-weight: 500; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin: 10px 0; }
+  figure { margin: 0; border: 1px solid var(--line); border-radius: 6px; padding: 8px; background: var(--panel); }
+  figure img { width: 100%; height: auto; display: block; border-radius: 4px; cursor: zoom-in; }
+  figcaption { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .missing { font-size: 14px; color: var(--fill-ink); background: var(--fill); padding: 30px 10px; text-align: center; border-radius: 4px; }
+  .qbox { border: 1px solid var(--line); border-left: 5px solid var(--accent); border-radius: 4px; padding: 6px 18px 10px; background: var(--panel); }
+  .qbox h3 { color: var(--accent); }
+  .note { font-size: 14px; color: var(--muted); }
+  footer { margin-top: 36px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   @media (max-width: 760px) {
     .grid { grid-template-columns: 1fr; }
     .col-head, .row-label { display: none; }
@@ -110,90 +96,162 @@
 </head>
 <body>
 <div class="wrap">
-  <p class="eyebrow">Place a task · Our turn</p>
+  <p class="eyebrow">Problem Set 5 · My agent on our map</p>
   <h1>Where would you place each of our tasks, and who should lead it?</h1>
-  <p class="lede">Each of us designed one task for an AI agent. Call the quadrant for each task before you click. Our placement and its reason appear below.</p>
+  <p class="lede">Each of us designed one task for an AI agent in Week 7. For Problem Set 5 I built one agent of my own, a daily US stock watch that gives a Buy, Sell or Hold signal, and placed it on our map. It is marked with a dashed orange outline.</p>
 
   <section class="panel" aria-label="Interactive task map">
     <div class="panel-head">
-      <span class="badge">Group task map</span>
-      <span class="counter" id="counter" aria-live="polite">0 of 5 placed</span>
+      <span class="badge">Group task map + my agent</span>
+      <span class="counter" id="counter" aria-live="polite">0 of 6 placed</span>
     </div>
-
     <div class="grid">
       <div></div>
       <div class="col-head">Work with a right answer</div>
       <div class="col-head">Work with no single right answer</div>
-
       <div class="row-label">Work that people and AI must do together</div>
       <div class="quad pink" data-q="lead"><h3>A person leads, AI inside<small>Right answer · do together</small></h3><div class="dots"></div></div>
       <div class="quad blue" data-q="agents"><h3>Agents run it, a person judges<small>No single answer · do together</small></h3><div class="dots"></div></div>
-
       <div class="row-label">Work that either of them can do alone</div>
       <div class="quad blue" data-q="alone"><h3>AI alone, with checks<small>Right answer · either alone</small></h3><div class="dots"></div></div>
       <div class="quad pink" data-q="decides"><h3>A person decides, AI alongside<small>No single answer · either alone</small></h3><div class="dots"></div></div>
     </div>
-
     <div class="explain" id="explain" aria-live="polite">Pick a task card below to see where we placed it and why.</div>
-
     <div class="cards" id="cards"></div>
-
-    <p class="hint">Click a task card to place it, or Show all. The placements are our own, for discussion. You may well place some differently.</p>
+    <p class="hint">Click a task card to place it, or Show all. The group placements are our own, for discussion. My PS5 agent is placed when the page opens.</p>
   </section>
 
+  <!-- ============ STEP 1 · AGENT CARD ============ -->
+  <h2>1 · My agent card (written before its first run)</h2>
+<pre class="agentcard">My agent card | Daily US Stock Watch | finished 18 Oct 2026, 10:30 PM SGT
+1. The job: Every morning, it tracks the price, today's change and my gain or loss for the US stocks on my watchlist (AAPL and NVDA to start) and gives each one a rule-based Buy, Sell or Hold signal, for me as a retail investor.
+2. The trigger: A schedule three times a day in Singapore time: 12:00 AM (midnight, while the US market is open), 4:00 AM (as the US market closes) and 8:00 AM (after the close). Or me typing in the "Run time" cell of my Google Sheet when I want a fresh check.
+3. The tools: Schedule by Zapier (Every Day, three Zaps: 12 AM, 4 AM and 8 AM); Google Sheets (Update Spreadsheet Row, and New or Updated Spreadsheet Row) on a sheet that pulls prices with GOOGLEFINANCE; Gmail (Send Email).
+4. It must never: place a trade or send my portfolio to anyone else. Setting that stops it: the only action is Gmail "Send Email" with the To field fixed to my own address, and no broker app is connected.
+5. Where a person checks: I read the email at breakfast, before the US market opens at 9:30 PM Singapore time, spot-check one price against Google Finance, and decide myself whether to buy, sell or hold in my own broker app.</pre>
+
+  <h3>How it is built (free plan, four simple Zaps, each with one trigger and one action)</h3>
+  <div class="flow"><span>Zap 1a · Schedule by Zapier, every day 12:00 AM</span><b>→</b><span>Google Sheets · Update row 2 of "Summary" (writes the run time)</span></div>
+  <div class="flow"><span>Zap 1b · Schedule by Zapier, every day 4:00 AM</span><b>→</b><span>Google Sheets · Update row 2 of "Summary" (writes the run time)</span></div>
+  <div class="flow"><span>Zap 1c · Schedule by Zapier, every day 8:00 AM</span><b>→</b><span>Google Sheets · Update row 2 of "Summary" (writes the run time)</span></div>
+  <div class="flow"><span>Zap 2 · Google Sheets, New or Updated Row in "Summary"</span><b>→</b><span>Gmail · Send Email to me (body = the briefing)</span></div>
+  <p>The Google Sheet is the agent's "brain". The <b>Watchlist</b> tab holds my stocks; I add a stock by typing its ticker in a new row and delete one by clearing its row. GOOGLEFINANCE fills in the price, today's change, and the 52-week low and high. A fixed rule turns these into a signal:</p>
+  <ul>
+    <li><b>SELL (take profit)</b> if the stock is up 25% or more from my buy price.</li>
+    <li><b>SELL (stop loss)</b> if it is down 15% or more from my buy price.</li>
+    <li><b>BUY</b> if the price is in the bottom 30% of its 52-week range.</li>
+    <li><b>HOLD</b> otherwise.</li>
+  </ul>
+  <p class="note">This rule is for learning only and is not financial advice. The two example holdings (10 AAPL at US$200, 10 NVDA at US$120) are made up for this problem set.</p>
+  <div class="shots">
+    <figure><img src="ps5-zap1.png" alt="Zap 1c in the Zapier editor: Schedule by Zapier every day at 8:00 AM, Asia/Singapore, then Google Sheets Update Spreadsheet Row" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-zap1.png</div>'"><figcaption>Zap 1c (8 AM). Zaps 1a (12 AM) and 1b (4 AM) are identical except for the time. Each has one trigger and one action, and the timezone is set to Asia/Singapore.</figcaption></figure>
+    <figure><img src="ps5-zap2.png" alt="Zap 2 in the Zapier editor: Google Sheets New or Updated row on PS5 Stock Watch, Summary, trigger column Run time, then Gmail Send Email" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-zap2.png</div>'"><figcaption>Zap 2: Google Sheets (PS5 Stock Watch › Summary, trigger column "Run time") → Gmail</figcaption></figure>
+    <figure><img src="ps5-sheet.png" alt="The Watchlist tab in Google Sheets with AAPL and NVDA" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-sheet.png</div>'"><figcaption>The Watchlist tab: AAPL and NVDA with price, 52-week range, gain/loss and signal</figcaption></figure>
+  </div>
+
+  <!-- ============ STEP 2 · RUNS ============ -->
+  <h2>2 · Three runs, checked against Zap history</h2>
+  <p>For each run I compared three things: the email I received, the same run in Zap history, and the price on Google Finance. All three scheduled runs fired on time with no help from me. Each time, the alarm-clock Zap ran within a minute of the hour, and Zap 2 sent the email about 3 minutes later (the free plan checks for changes every few minutes). These three runs came after my two test runs on Sunday night (see the tricky case).</p>
+  <div class="tablewrap"><table>
+    <tr><th>Run</th><th>When (SGT)</th><th>What the email said</th><th>Zap history</th><th>My check</th></tr>
+    <tr><td>1 · Zap 1a</td><td>Mon 19 Oct, 12:00 AM. Zap 1a ran 12:00:25 AM; email at 12:03 AM</td><td>AAPL US$343.46 (+0.4%), P/L +71.7%, 52-week position 96% → <b>SELL (take profit)</b>. NVDA US$214.13 (−1.4%), P/L +78.4%, 52-week position 63% → <b>SELL (take profit)</b>.</td><td>Zap 1a ✓ Successful (12:00:25 AM) → Zap 2 ✓ Successful (12:03:00 AM), 1 task each</td><td>Prices match Google Finance's last close (Fri 16 Oct). Arithmetic checked by hand: AAPL (343.46 − 243.42) ÷ (348.15 − 243.42) = 96% ✓; 343.46 ÷ 200 − 1 = +71.7% ✓; NVDA 214.13 ÷ 120 − 1 = +78.4% ✓.</td></tr>
+    <tr><td>2 · Zap 1b</td><td>Mon 19 Oct, 4:00 AM. Zap 1b ran 4:00:30 AM; email at 4:03 AM</td><td>Identical to run 1: AAPL US$343.46 → SELL (take profit); NVDA US$214.13 → SELL (take profit).</td><td>Zap 1b ✓ Successful (4:00:30 AM) → Zap 2 ✓ Successful (4:03:05 AM)</td><td>Correct but stale: the US market is shut on Sunday (New York time), so the price is still Friday's close. The email gives no sign of this.</td></tr>
+    <tr><td>3 · Zap 1c</td><td>Mon 19 Oct, 8:00 AM. Zap 1c ran 8:00:53 AM; email at 8:03 AM</td><td>Identical again: AAPL US$343.46 → SELL (take profit); NVDA US$214.13 → SELL (take profit).</td><td>Zap 1c ✓ Successful (8:00:53 AM) → Zap 2 ✓ Successful (8:03:52 AM)</td><td>Same stale price. The subject read "Stock watch – Oct 19, 202608:00:53 AM": I had left no space between the Pretty Date and Pretty Time fields, a small formatting slip I noted for the next version.</td></tr>
+  </table></div>
+  <p><b>What the runs taught me:</b> all four emails, from the 11:50 PM test run to the 8:00 AM run, showed exactly the same prices (AAPL US$343.46, NVDA US$214.13). My agent card assumed that the midnight run would catch the US market "while it is open". But 12:00 AM to 8:00 AM on Monday in Singapore is still Sunday in New York, so the market was closed and every run repeated Friday's closing price. Monday's session only opens at 9:30 PM Singapore time. The agent did nothing wrong: the prices were correct, just not new. However, the email does not tell me they are stale, so a reader could think they are live.</p>
+  <div class="shots">
+    <figure><img src="ps5-run1.png" alt="Run 1 email at 12:03 AM on Monday 19 October" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-run1.png</div>'"><figcaption>Run 1: the 12:00 AM email (arrived 12:03 AM)</figcaption></figure>
+    <figure><img src="ps5-run2.png" alt="Run 2 email" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-run2.png</div>'"><figcaption>Run 2: the 4:00 AM email (arrived 4:03 AM)</figcaption></figure>
+    <figure><img src="ps5-run3.png" alt="Run 3 email" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-run3.png</div>'"><figcaption>Run 3: the 8:00 AM email (arrived 8:03 AM)</figcaption></figure>
+    <figure><img src="ps5-history.png" alt="Zap history list" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-history.png</div>'"><figcaption>Zap history: all six steps of the three scheduled runs are "Successful"</figcaption></figure>
+  </div>
+
+  <h3>The tricky case, and the fix</h3>
+  <p><b>What I tried:</b> I added a misspelled ticker, <b>NVDIA</b> instead of NVDA (5 shares at US$100), as a third stock. A busy investor could easily make this typo when adding a stock. I then triggered a run by typing "tricky test" in the Run time cell.</p>
+  <p><b>What I expected beforehand:</b> that only the NVDIA line would be wrong, and the AAPL and NVDA lines would still arrive.</p>
+  <p><b>What happened (Sun 18 Oct, 11:38 PM):</b> my prediction was wrong. The whole email body was just <b>"#N/A"</b>. One bad ticker broke the joined briefing, so I lost the two good stocks as well. Worse, Zap history marked the run <b>"Successful"</b> (11:38:28 PM, 1 task), because Zapier only checks that an email was sent, not whether what it says makes sense. This failure was silent: nothing warned me except reading the email myself.</p>
+  <p><b>The fix:</b> I wrapped the "Email line" formula (column K) in <b>IFERROR</b>, so a ticker that Google Finance cannot find now shows "ticker not found - please check the spelling. No signal given." instead of an error. I copied the fix down to every row, so any future stock is protected too.</p>
+  <p><b>The same case, rerun (Sun 18 Oct, 11:52 PM):</b> with NVDIA still in the list, I triggered the same case again ("tricky rerun"). The email now showed AAPL and NVDA correctly, plus a clear warning line: "NVDIA: ticker not found - please check the spelling. No signal given." Zap history showed this run as "Successful" (11:51:58 PM), and this time "Successful" matched a useful email. I then deleted the NVDIA row, so the scheduled runs used only AAPL and NVDA.</p>
+  <div class="shots">
+    <figure><img src="ps5-tricky-before.png" alt="Tricky test email whose body is only #N/A, next to Zap history showing the run as Successful" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-tricky-before.png</div>'"><figcaption>Before the fix: the body is only "#N/A", yet Zap history says "Successful"</figcaption></figure>
+    <figure><img src="ps5-fix.png" alt="Google Sheet showing the IFERROR formula in K2 and the NVDIA row with a ticker-not-found message" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-fix.png</div>'"><figcaption>The fix: IFERROR in column K turns NVDIA's #N/A into a clear warning</figcaption></figure>
+    <figure><img src="ps5-tricky-after.png" alt="Tricky rerun email showing AAPL, NVDA and a warning line for NVDIA, with Zap history Successful" onerror="this.outerHTML='<div class=missing>Screenshot to add: ps5-tricky-after.png</div>'"><figcaption>The same case after the fix: good stocks kept, bad ticker flagged</figcaption></figure>
+  </div>
+
+  <!-- ============ STEP 3 · Q1 ============ -->
+  <h2>3 · Q1: Where does my agent sit, and what does that mean for the person in the loop?</h2>
+  <div class="qbox">
+    <h3>(a) My quadrant</h3>
+    <p><b>A person decides, AI alongside</b> (bottom right).</p>
+
+    <h3>(b) The two questions, with evidence from my runs</h3>
+    <p><b>A right answer, or no single right answer? No single right answer.</b> Half of the job does have a right answer. The price, the gain or loss and the 52-week position are facts I could check by hand: in run 1, AAPL's +71.7% and 96% both worked out exactly. But the job I gave the agent is to recommend Buy, Sell or Hold, and that has no single right answer. In all three runs my rule said <b>SELL (take profit)</b> for both stocks, only because both were more than 25% above my made-up buy prices. Yet the same numbers support other views. AAPL at 96% of its 52-week range is near its high, which a momentum investor would read as strength and a value investor as expensive. A long-term holder who believes in NVIDIA could sensibly hold through a −1.4% day. The rule cannot see my goals, risk appetite, time horizon or taxes, so two reasonable investors can read the same email and act differently.</p>
+    <p><b>Must do together, or either can do it alone? Either can do it alone.</b> All three scheduled runs fired, updated the sheet and arrived (12:03, 4:03 and 8:03 AM) while I was asleep, with six "Successful" steps in Zap history, so the agent completes its part with no help from me. I can also make the decision alone by checking Google Finance myself. There is no step in the middle where the agent must stop and wait for me. I come in only at the end, as the decision-maker. This is unlike the top row of the map, where a person has to step in during the process.</p>
+
+    <h3>(c) The person in the loop</h3>
+    <p><b>Where I stay at the gate, and what I check:</b> I, the investor, read the email at breakfast, before the US market opens at 9:30 PM Singapore time. I check three things: that one price matches Google Finance; that there is no "ticker not found" warning or "#N/A"; and that the prices are not stale, since on weekends and US holidays they repeat the last close. Only then do I decide, and any trade is placed by me in my broker app. My tricky case showed why this gate matters: Zap history said "Successful" for an email that only said "#N/A", so only a person reading the output catches that kind of failure.</p>
+    <p><b>What the agent may do alone:</b> read prices, work out gain or loss and the 52-week position, label a signal, and email the briefing to me only. It cannot trade, because no broker is connected, and it cannot email anyone else, because the To field is fixed to my address.</p>
+    <p><b>What would move it to another quadrant:</b></p>
+    <ul>
+      <li>Remove the Buy/Sell/Hold signal, so it only reports facts → <b>AI alone, with checks</b>. That is where my group placed the Finance portfolio summary.</li>
+      <li>Let agents test several strategies and line up orders that I must approve before they go to the broker → <b>Agents run it, a person judges</b>.</li>
+      <li>Use it at a bank, where a licensed adviser must check each suggestion against the client's risk profile and sign off → <b>A person leads, AI inside</b>, because suitability rules give that check a right answer.</li>
+    </ul>
+
+    <h3>(d) My group's view</h3>
+    <p>I agree with my group's placement for the task as we designed it. The Finance portfolio summary in <b>AI alone, with checks</b> reports facts "without giving advice", so it is work with a right answer that AI can do alone. My agent answers the first question differently, because I added a recommendation. Once the agent says Buy, Sell or Hold, the work moves from "work with a right answer" to "work with no single right answer", and the agent moves right on the map. This shows that the job, not the topic, decides the quadrant: the same finance data sits in two different quadrants. I agree with the other four placements. If anything, I would ask whether the Careers internship tracker really works alone, since a person must still read the emails it cannot classify.</p>
+  </div>
+
+  <h2>4 · Collaboration log</h2>
+  <div class="tablewrap"><table>
+    <tr><th>What I delegated to AI</th><th>What I checked, and how</th></tr>
+    <tr><td>Claude (Cowork) designed the Google Sheet formulas and the Buy/Sell/Hold rule, planned the Zaps, drafted this page's HTML, and drafted my Q1 answer.</td><td>I checked the sheet's outputs by hand (for example, AAPL's +71.7% gain and 96% 52-week position) and compared prices with Google Finance. I reread Q1 against my own emails and changed the wording where it did not match what happened.</td></tr>
+    <tr><td>Zapier's Copilot built the Zap steps from my written prompt.</td><td>I tested each step before publishing. When "Test trigger" failed, I re-picked the spreadsheet, worksheet and column from the dropdowns, which fixed it.</td></tr>
+    <tr><td>Zapier runs the schedule, updates the sheet and sends the email.</td><td>For every run I matched the email's time and text with the same run in Zap history. I read every email myself, because "Successful" does not mean correct.</td></tr>
+  </table></div>
+  <p><b>AI errors I caught:</b></p>
+  <ul>
+    <li><b>Zapier Copilot:</b> it filled in the spreadsheet by typing its name instead of linking the real file, so the trigger test failed with "Requested entity was not found." I caught it at the test step and re-selected the file from the dropdown.</li>
+    <li><b>Claude:</b> its plan said the 12:00 AM run would show live mid-session prices. My Sunday 11:50 PM and Monday 12:00 AM emails showed identical prices, which showed me that the US market is closed at that hour on a weekend. The plan was wrong for weekends, and I recorded this instead of claiming the runs were live.</li>
+    <li><b>Claude (caught during design):</b> its first design used a 50-day moving average built from GOOGLEFINANCE's historical data, which Google blocks from the Sheets API that Zapier uses. Zapier would have received "#N/A", so we switched to the 52-week low and high.</li>
+  </ul>
+  <p><b>Time and cost:</b> about 5 hours in total over Sunday 18 and Monday 19 October: roughly 2 hours to set up the Google Sheet and the four Zaps (including fixing the Copilot error), 1 hour on the tricky case and fix, and 2 hours checking the runs and writing this page. Money: S$0, using the Zapier free plan, a personal test Google account, and the GitHub and Vercel free tiers. Each scheduled run uses 2 Zapier tasks (one per Zap), so three runs a day use 6 of the 100 free tasks a month.</p>
+
+  <h2>5 · Reflection</h2>
+  <p>My agent fitted the factual part of the job well: three times a night it fetched prices, worked out my gain or loss and 52-week position correctly, and emailed me without my lifting a finger. It failed silently twice: one mistyped ticker turned the whole email into "#N/A" while Zap history still said "Successful", and weekend runs repeated Friday's prices without saying they were stale, so a green tick in Zap history is not the same as a correct output. Next time, I would keep the IFERROR fix, add a "market closed – last close" note and run only on US trading days, and review the rule's signals against what the stocks actually did each week before trusting them.</p>
+
   <footer>
-    <span>Map of Human-AI Collaboration · Group project</span>
-    <span>Five tasks · four quadrants</span>
+    <span>Map of Human-AI Collaboration · Group project + PS5 · Ang Wee Khee</span>
+    <span>Six tasks · four quadrants · Agent turned off after class on 21 Oct 2026</span>
   </footer>
 </div>
 
 <script>
-  // Edit `owner` to show each teammate's name on the cards.
   const TASKS = [
-    {
-      id: "portfolio", owner: "Finance", color: "#1f7a4d",
-      task: "Daily 9am portfolio summary", q: "alone",
+    { id: "portfolio", owner: "Finance", color: "#1f7a4d", task: "Daily 9am portfolio summary", q: "alone",
       reason: "Prices, returns and allocations are facts with a right answer, so AI can compile the summary alone on a schedule.",
-      check: "Figures are reconciled against the brokerage data, and the summary reports what happened without giving advice."
-    },
-    {
-      id: "email", owner: "Inbox", color: "#c8364a",
-      task: "Daily 9am urgent email summary", q: "decides",
+      check: "Figures are reconciled against the brokerage data, and the summary reports what happened without giving advice." },
+    { id: "email", owner: "Inbox", color: "#c8364a", task: "Daily 9am urgent email summary", q: "decides",
       reason: "What counts as urgent depends on the person's own priorities, so there is no single right answer. AI sorts and summarises, and the person decides what to act on.",
-      check: "The person reviews the priority list each morning and corrects what AI marked as urgent."
-    },
-    {
-      id: "internship", owner: "Careers", color: "#2a6f97",
-      task: "Track internship application status", q: "alone",
+      check: "The person reviews the priority list each morning and corrects what AI marked as urgent." },
+    { id: "internship", owner: "Careers", color: "#2a6f97", task: "Track internship application status", q: "alone",
       reason: "Each application has a factual status (applied, assessment, interview, offer, rejected), so AI can track it across email alone.",
-      check: "Emails that AI can't classify confidently are flagged for the person to read."
-    },
-    {
-      id: "school", owner: "School", color: "#a77c12",
-      task: "Track school projects and deadlines", q: "lead",
+      check: "Emails that AI can't classify confidently are flagged for the person to read." },
+    { id: "school", owner: "School", color: "#a77c12", task: "Track school projects and deadlines", q: "lead",
       reason: "Deadlines have a right answer, but they come from the syllabus, the LMS, group chats and announcements in class, and the student answers for a missed one. The student leads and AI keeps the tracker up to date.",
-      check: "The student confirms each new deadline before it goes into the tracker."
-    },
-    {
-      id: "forms", owner: "Customers", color: "#6a4bb5",
-      task: "Analyse and categorise Google Forms feedback", q: "agents",
+      check: "The student confirms each new deadline before it goes into the tracker." },
+    { id: "forms", owner: "Customers", color: "#6a4bb5", task: "Analyse and categorise Google Forms feedback", q: "agents",
       reason: "There is no single right way to group open-ended customer responses into themes. Agents cluster and count the responses, and a person judges whether the categories make sense for the business.",
-      check: "A person reviews the categories and a sample of responses before the results are shared."
-    }
+      check: "A person reviews the categories and a sample of responses before the results are shared." },
+    { id: "mine", owner: "PS5 · Mine", color: "#e07a00", task: "Daily US stock watch with Buy/Sell/Hold signal", q: "decides", mine: true,
+      reason: "Prices have a right answer, but a Buy, Sell or Hold call does not: it depends on my goals, risk appetite and time horizon. The agent prepares the briefing alone and I decide alone, so it sits bottom right.",
+      check: "I read the 8 AM email (the midnight and 4 AM ones are overnight checks) before the US market opens, spot-check one price on Google Finance, and place any trade myself. The agent never trades." }
   ];
-
-  const QUAD_NAMES = {
-    lead: "A person leads, AI inside",
-    agents: "Agents run it, a person judges",
-    alone: "AI alone, with checks",
-    decides: "A person decides, AI alongside"
-  };
-
+  const QUAD_NAMES = { lead: "A person leads, AI inside", agents: "Agents run it, a person judges", alone: "AI alone, with checks", decides: "A person decides, AI alongside" };
   const placed = new Set();
   const cardsEl = document.getElementById("cards");
   const explainEl = document.getElementById("explain");
   const counterEl = document.getElementById("counter");
-
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
   function renderCards() {
@@ -214,41 +272,36 @@
     clear.className = "btn"; clear.textContent = "Clear"; clear.onclick = reset;
     cardsEl.append(all, clear);
   }
-
   function renderDots() {
     document.querySelectorAll(".quad .dots").forEach(d => (d.innerHTML = ""));
     TASKS.filter(t => placed.has(t.id)).forEach(t => {
       const box = document.querySelector(`.quad[data-q="${t.q}"] .dots`);
       const el = document.createElement("div");
-      el.className = "dot";
+      el.className = "dot" + (t.mine ? " mine" : "");
       el.innerHTML = `<i style="background:${t.color}"></i><span>${esc(t.owner)} · ${esc(t.task)}</span>`;
       box.appendChild(el);
     });
     counterEl.textContent = `${placed.size} of ${TASKS.length} placed`;
   }
-
   function place(t) {
     placed.add(t.id);
-    explainEl.innerHTML =
-      `<b>${esc(t.owner)} · ${esc(t.task)}</b> → ${QUAD_NAMES[t.q]}. ${esc(t.reason)}` +
+    explainEl.innerHTML = `<b>${esc(t.owner)} · ${esc(t.task)}</b> → ${QUAD_NAMES[t.q]}. ${esc(t.reason)}` +
       `<span class="meta">The check: ${esc(t.check)}</span>`;
     renderDots(); renderCards();
   }
-
   function showAll() {
     TASKS.forEach(t => placed.add(t.id));
-    explainEl.textContent =
-      "All five tasks are placed. Each one is a task an AI agent could run on a schedule, but who leads depends on whether there is a right answer and who answers for the outcome.";
+    explainEl.textContent = "All six tasks are placed. Each one is a task an AI agent could run on a schedule, but who leads depends on whether there is a right answer and who answers for the outcome.";
     renderDots(); renderCards();
   }
-
   function reset() {
     placed.clear();
     explainEl.textContent = "Pick a task card below to see where we placed it and why.";
     renderDots(); renderCards();
   }
-
   renderCards();
+  place(TASKS.find(t => t.mine));
+  document.querySelectorAll('figure img').forEach(i => { i.title = 'Click to open full size'; i.onclick = () => window.open(i.src, '_blank'); });
 </script>
 </body>
 </html>
